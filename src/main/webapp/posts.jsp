@@ -31,9 +31,10 @@
 			<th>이름</th>
 			<th>생년월일</th>
 			<th>Email</th>
-			<th>Residence</th>
+			<th>거주지</th>
 			<th>전화번호</th>
 			<th>전공</th>
+			<th>역할</th>
 			<th>등록일</th>
 			<th>Edit</th>
 			<th>Delete</th>
@@ -51,6 +52,7 @@
 				<td>${u.getResidence()}</td>
 				<td>${u.getPhone()}</td>
 				<td>${u.getMajor()}</td>
+				<td>${u.getCategory()}</td>
 				<td>${u.getRegdate()}</td>
 				<td>
 					<button class="btn btn-primary btn-sm" onclick="redirectToUpdate(${u.getSeq()})">수정</button>

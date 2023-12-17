@@ -15,8 +15,8 @@ public class TeamDAO {
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
 
-	private final String TEAM_INSERT = "insert into team (snumber, name, birth, email, residence, phone, major) values (?,?,?,?,?,?,?)";
-	private final String TEAM_UPDATE = "update team set name=?, birth=?, email=?, residence=?, phone=?, major=? where seq=?";
+	private final String TEAM_INSERT = "insert into team (snumber, name, birth, email, residence, phone, major, category) values (?,?,?,?,?,?,?,?)";
+	private final String TEAM_UPDATE = "update team set name=?, birth=?, email=?, residence=?, phone=?, major=?, category=? where seq=?";
 	private final String TEAM_DELETE = "delete from team where seq=?";
 	private final String TEAM_GET = "select * from team where seq=?";
 	private final String TEAM_LIST = "select * from team order by seq desc";
@@ -33,6 +33,7 @@ public class TeamDAO {
 			stmt.setString(5, vo.getResidence());
 			stmt.setString(6, vo.getPhone());
 			stmt.setString(7, vo.getMajor());
+			stmt.setString(8, vo.getCategory());
 			stmt.executeUpdate();
 			return 1;
 		} catch (Exception e) {
@@ -64,7 +65,8 @@ public class TeamDAO {
 			stmt.setString(4, vo.getResidence());
 			stmt.setString(5, vo.getPhone());
 			stmt.setString(6, vo.getMajor());
-			stmt.setInt(7, vo.getSeq());
+			stmt.setString(7, vo.getCategory());
+			stmt.setInt(8, vo.getSeq());
 			stmt.executeUpdate();
 			return 1;
 		} catch (Exception e) {
@@ -90,6 +92,7 @@ public class TeamDAO {
 				one.setResidence(rs.getString("residence"));
 				one.setPhone(rs.getString("phone"));
 				one.setMajor(rs.getString("major"));
+				one.setCategory(rs.getString("category"));
 				one.setRegdate(rs.getTimestamp("regdate"));
 			}
 			rs.close();
@@ -116,6 +119,7 @@ public class TeamDAO {
 				one.setResidence(rs.getString("residence"));
 				one.setPhone(rs.getString("phone"));
 				one.setMajor(rs.getString("major"));
+				one.setCategory(rs.getString("category"));
 				one.setRegdate(rs.getTimestamp("regdate"));
 				list.add(one);
 			}

@@ -5,6 +5,7 @@ import java.util.Date;
 public class TeamVO {
     private int seq;
     private int snumber;
+    private String category;
     private String name;
     private String birth;
     private String email;
@@ -14,6 +15,13 @@ public class TeamVO {
     private Date regdate;
     private int cnt;
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
     public int getSnumber() {
         return snumber;
     }

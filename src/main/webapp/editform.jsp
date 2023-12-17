@@ -45,41 +45,38 @@
 	<h1 class="text-center">Edit Form</h1>
 	<form action="editpost.jsp" method="post">
 
-		<!-- Hidden field for sequence ID -->
 		<input type="hidden" name="seq" value="<%= u.getSeq() %>"/>
 
-		<!-- Student Number -->
 		<label for="snum">Student Number:</label>
 		<input type="text" id="snum" name="snumber" class="form-control" value="<%= u.getSnumber() %>">
 
-		<!-- Name -->
 		<label for="name">Name:</label>
 		<input type="text" id="name" name="name" class="form-control" value="<%= u.getName() %>">
 
-		<!-- Birth -->
 		<label for="birth">Birth:</label>
 		<input type="text" id="birth" name="birth" class="form-control" value="<%= u.getBirth() %>">
 
-		<!-- Email -->
 		<label for="email">Email:</label>
 		<input type="text" id="email" name="email" class="form-control" value="<%= u.getEmail() %>">
 
-		<!-- Residence -->
 		<label for="residence">Residence:</label>
 		<input type="text" id="residence" name="residence" class="form-control" value="<%= u.getResidence() %>">
 
-		<!-- Phone -->
 		<label for="phone">Phone:</label>
 		<input type="text" id="phone" name="phone" class="form-control" value="<%= u.getPhone() %>">
 
-		<!-- Major -->
 		<label for="major">Major:</label>
 		<input type="text" id="major" name="major" class="form-control" value="<%= u.getMajor() %>">
 
-		<!-- Submit Button -->
+		<label for="category">Category:</label>
+		<select id="category" name="category" class="form-select">
+			<option value="팀장" <%= u.getCategory().equals("팀장") ? "selected" : "" %>>팀장</option>
+			<option value="부팀장" <%= u.getCategory().equals("부팀장") ? "selected" : "" %>>부팀장</option>
+			<option value="팀원" <%= u.getCategory().equals("팀원") ? "selected" : "" %>>팀원</option>
+		</select>
+
 		<button type="submit" class="btn btn-primary">Edit Post</button>
 
-		<!-- Cancel Button -->
 		<button type="button" class="btn btn-secondary" onclick="history.back()">Cancel</button>
 	</form>
 </div>
